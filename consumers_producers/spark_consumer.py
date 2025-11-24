@@ -10,12 +10,7 @@ spark = SparkSession.builder \
 
 schema = StructType([
     StructField("date", DateType(), True),
-    StructField("tmin", FloatType(), True),
-    StructField("tmax", FloatType(), True),
-    StructField("prcp", FloatType(), True),
-    StructField("snow", FloatType(), True),
-    StructField("snwd", FloatType(), True),
-    StructField("awnd", FloatType(), True),
+    StructField("temp", FloatType(), True),
 ])
 
 print("Initialized")
