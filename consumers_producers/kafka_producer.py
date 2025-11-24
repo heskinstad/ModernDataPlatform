@@ -1,14 +1,21 @@
 from confluent_kafka import Producer
 import json
 import time
+from random import random
+from datetime import date, timedelta
 
 bootstrap_servers = "localhost:29092,localhost:29093,localhost:29094"
 topic = "weather-data"
 
-# Load from JSON
-def load_json_data(filename):
-    with open(filename, "r") as file:
-        data = json.load(file)
+def produce_weather_data(length):
+    start_date = date(2025, 1, 1)
+    data = []
+
+    for i in range(length):
+        current_date = start_date + timedelta(days=i)
+        temperature = (random() * 6.0) - 3.0 + i
+        data.append([current_date.isoformat(), temperature])
+
     return data
 
 def delivery_report(err, msg):
@@ -26,7 +33,7 @@ def run_producer(acks_mode="all", delay=2.0):
         # 'delivery.timeout.ms': 1000
     })
 
-    weather_data_list = load_json_data("../data/rdu-weather-history.json")
+    weather_data_list = produce_weather_data(100)
     
     for i in range(len(weather_data_list)):
         weather_data = weather_data_list[i]
@@ -44,4 +51,4 @@ def run_producer(acks_mode="all", delay=2.0):
     p.flush()
     print("🏁 Producer finished.\n")
 
-run_producer("1", delay=20)
+run_producer("1", delay=5)
