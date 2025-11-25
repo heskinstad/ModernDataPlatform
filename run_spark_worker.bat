@@ -1,0 +1,1 @@
+C:\spark\sbin\start-worker.cmd spark://localhost:7077

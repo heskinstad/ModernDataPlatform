@@ -10,11 +10,16 @@ topic = "weather-data"
 def produce_weather_data(length):
     start_date = date(2025, 1, 1)
     data = []
+    prevTemp = 0.0
 
-    for i in range(length):
+    for i in range(1, length):
         current_date = start_date + timedelta(days=i)
-        temperature = (random() * 6.0) - 3.0 + i
-        data.append([current_date.isoformat(), temperature])
+        avgTemp = (random() * 6.0) - 3.0 + prevTemp
+        minTemp = (random() * 10.0) - 10.0 + avgTemp
+        maxTemp = (random() * 10.0) + 10.0 + avgTemp
+        pressure = (random() * 30.0) - 15 + 1013
+        data.append([current_date.isoformat(), avgTemp, minTemp, maxTemp, pressure])
+        prevTemp = avgTemp
 
     return data
 

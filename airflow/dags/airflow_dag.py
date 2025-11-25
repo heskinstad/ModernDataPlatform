@@ -1,5 +1,6 @@
-from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from datetime import datetime
 from airflow import DAG
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 with DAG(
     "spark_microbatch_weather",
