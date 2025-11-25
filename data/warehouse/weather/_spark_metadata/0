@@ -1,0 +1,4 @@
+v1
+{"path":"file:///C:/Users/HJohn1/source/repos/ModernDataPlatform/data/warehouse/weather/year=2025/month=11/day=25/part-00000-9bf64cba-c795-4069-b95f-1490e05121c9.c000.snappy.parquet","size":7165,"isDir":false,"modificationTime":1764078497687,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///C:/Users/HJohn1/source/repos/ModernDataPlatform/data/warehouse/weather/year=2025/month=11/day=25/part-00001-d88c7733-b17e-4b9a-915c-45090640b445.c000.snappy.parquet","size":7692,"isDir":false,"modificationTime":1764078497687,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///C:/Users/HJohn1/source/repos/ModernDataPlatform/data/warehouse/weather/year=2025/month=11/day=25/part-00002-529a062d-1223-436b-8586-e5bec18e0019.c000.snappy.parquet","size":7372,"isDir":false,"modificationTime":1764078497687,"blockReplication":1,"blockSize":33554432,"action":"add"}
