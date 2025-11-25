@@ -2,15 +2,18 @@ from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOpe
 from airflow import DAG
 import datetime
 
-with DAG(
+spark_dag = DAG(
     "spark_microbatch_weather",
     start_date=datetime(2025,1,1),
     schedule="@hourly",
     catchup=False
-) as dag:
+)
 
-    spark_etl = SparkSubmitOperator(
-        task_id="spark_weather_batch",
-        application="/opt/consumers_producers/spark_consumer.py",
-        conn_id="spark_default"
-    )
+Extract = SparkSubmitOperator(
+    task_id="spark_weather_batch",
+    application="/opt/consumers_producers/spark_consumer.py",
+    conn_id="spark_default",
+    dag=spark_dag
+)
+
+Extract

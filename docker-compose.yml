@@ -109,7 +109,7 @@ services:
     entrypoint: ["sleep", "infinity"]
 
     
-  # --- AIRFLOW SETUP ---
+  ### AIRFLOW SETUP ###
   airflow-postgres:
     image: postgres:13
     container_name: airflow-postgres
@@ -173,6 +173,10 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
+
+### SPARK SETUP ###
+
+
 
 volumes:
   airflow_postgres_data:
